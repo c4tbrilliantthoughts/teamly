@@ -1,22 +1,28 @@
 # dependencies
 node_modules/
-dist/
-.DS_Store
 
-# build output
+# build output (✅ we DO NOT want to push dist to GitHub manually)
+dist/
 build/
 .cache/
 vite-dist/
 
-# local env files
+# system files
+.DS_Store
+Thumbs.db
+
+# local environment files
 .env
 .env.local
 .env.*.local
 
-# editor & system files
+# editor settings
 .vscode/
 .idea/
-*.log
 
-# OS
-Thumbs.db
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
