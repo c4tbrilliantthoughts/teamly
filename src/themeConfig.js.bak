@@ -1,0 +1,27 @@
+// themeConfig.js
+const themeConfig = {
+  light: {
+    background: "#fff",
+    bubbleUser: "#1677ff",
+    bubbleBot: "#f5f5f5",
+    textUser: "#fff",
+    textBot: "#000",
+    buttonPrimary: "#1890ff",
+    buttonDanger: "#ff4d4f",
+    suggestionButton: "#e6f7ff",
+    suggestionText: "#0050b3",
+  },
+  dark: {
+    background: "#141414",
+    bubbleUser: "#1677ff",
+    bubbleBot: "#2a2a2a",
+    textUser: "#fff",
+    textBot: "#eee",
+    buttonPrimary: "#1890ff",
+    buttonDanger: "#ff4d4f",
+    suggestionButton: "#434343",
+    suggestionText: "#87e8de",
+  },
+};
+
+export default themeConfig;
