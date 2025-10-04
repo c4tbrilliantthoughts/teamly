@@ -1,0 +1,19 @@
+{
+  "commands": [
+    {
+      "id": "absence_template",
+      "triggers": [
+        "absence excel",
+        "add absence",
+        "send me excel",
+        "apply leave"
+      ],
+      "answer": "📄 Please find the Excel template: <a href='https://example.com/absence_template.xlsx' target='_blank'>Download Excel</a>"
+    },
+    {
+      "id": "welcome_note",
+      "triggers": ["hello", "hi", "hey"],
+      "answer": "<div>👋 Welcome to Teamly! We’re happy to have you here.</div>"
+    }
+  ]
+}
