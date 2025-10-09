@@ -13,7 +13,7 @@
     {
       "id": "welcome_note",
       "triggers": ["hello", "hi", "hey"],
-      "answer": "<div>👋 Welcome to Teamly! We’re happy to have you here.</div>"
+      "answer": "<div>👋 Welcome to PromptNext! We’re happy to have you here.</div>"
     }
   ]
 }
