@@ -1,8 +1,8 @@
 {
-  "name": "teamly-ui",
+  "name": "PromptNext-ui",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://c4tbrilliantthoughts.github.io/teamly",
+  "homepage": "https://c4tbrilliantthoughts.github.io/PromptNext",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

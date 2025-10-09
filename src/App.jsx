@@ -83,12 +83,13 @@ export default function App() {
       document.createElement("link");
     link.type = "image/x-icon";
     link.rel = "icon";
-    link.href = "/assets/favicon.ico";
+    link.href = "/PromptNext/favicon.ico";
     document.getElementsByTagName("head")[0].appendChild(link);
   }, []);
 
   useEffect(() => {
-    fetch("/commands.json")
+    // fetch("/commands.json")
+    fetch(`${import.meta.env.BASE_URL}commands.json`)
       .then((res) => res.json())
       .then((data) => setCommands(data.commands || []))
       .catch(() => console.error("Failed to load commands.json"));
@@ -220,7 +221,7 @@ export default function App() {
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: "url('/assets/sidebar-bg.png')",
+              backgroundImage: "url('/PromptNext/sidebar-bg.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -254,22 +255,67 @@ export default function App() {
             }}
           >
             {/* Logo */}
-            <div style={{ textAlign: "center" }}>
+            <div
+              style={{
+                textAlign: "center",
+                position: "relative",
+                display: "inline-block",
+              }}
+            >
               <img
                 src={
-                  darkMode
-                    ? "/assets/teamly-light.png"
-                    : "/assets/teamly-dark.png"
+                  darkMode ? "/promptnext-light.png" : "/promptnext-light.png"
                 }
-                alt="Teamly Logo"
+                alt="PromptNext Logo"
                 style={{
-                  height: 40,
+                  height: 60,
                   objectFit: "contain",
                   marginBottom: 10,
-                  transition: "opacity 0.3s ease",
+                  cursor: "pointer",
                 }}
-                onError={(e) => (e.target.style.display = "none")}
+                className="promptnect-logo"
               />
+              <span className="promptnect-tooltip">PromptNext</span>
+
+              <style>
+                {`
+                  .promptnect-tooltip {
+                    visibility: hidden;
+                    opacity: 0;
+                    background: #5160E3;
+                    color: white;
+                    text-align: center;
+                    border-radius: 8px;
+                    padding: 6px 10px;
+                    position: absolute;
+                    z-index: 10;
+                    bottom: 80%;
+                    left: 50%;
+                    transform: translateX(-50%) translateY(10px);
+                    white-space: nowrap;
+                    font-size: 0.85rem;
+                    pointer-events: none;
+                    transition: opacity 0.3s ease, transform 0.3s ease;
+                  }
+
+                  /* Hover trigger */
+                  .promptnect-logo:hover + .promptnect-tooltip {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                    animation: PromptNect 1.2s ease-in-out infinite;
+                  }
+
+                  /* Unique tooltip animation */
+                  @keyframes PromptNect {
+                    0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+                    25%  { transform: translateX(-50%) translateY(-3px) scale(1.05); opacity: 0.95; }
+                    50%  { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+                    75%  { transform: translateX(-50%) translateY(3px) scale(1.05); opacity: 0.95; }
+                    100% { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+                  }
+                `}
+              </style>
             </div>
 
             {/* Welcome Text */}
@@ -283,12 +329,21 @@ export default function App() {
             >
               <div
                 style={{
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: "bold",
                   color: darkMode ? "#fff" : "#000",
                 }}
               >
-                Welcome to <span style={{ color: "#4A90E2" }}>Teamly</span>
+                Welcome to{" "}
+                <span
+                  style={{
+                    fontSize: 24,
+                    color: "#5160E3",
+                    letterSpacing: "1.5px",
+                  }}
+                >
+                  PromptNext
+                </span>
               </div>
               <div
                 style={{
@@ -303,6 +358,7 @@ export default function App() {
             </div>
 
             {/* Footer Updated */}
+
             <div
               style={{
                 textAlign: "center",
@@ -376,7 +432,7 @@ export default function App() {
             <Tooltip title="Switch dark/light mode">
               <Switch
                 checked={darkMode}
-                // onChange={(checked) => setDarkMode(checked)}
+                onChange={(checked) = > setDarkMode(checked)}
                 style={{
                   backgroundColor: darkMode ? "#1677ff" : "#d9d9d9",
                 }}
@@ -412,7 +468,7 @@ export default function App() {
                   color: darkMode ? "#f1f5f9" : "#1f2937",
                 }}
               >
-                Hello 👋 there! Welcome to Teamly - Work smarter, together.
+                Hello 👋 there! Welcome to PromptNext - Work smarter, together.
               </h2>
               <p
                 style={{
