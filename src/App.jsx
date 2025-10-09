@@ -432,7 +432,7 @@ export default function App() {
             <Tooltip title="Switch dark/light mode">
               <Switch
                 checked={darkMode}
-                onChange={(checked) = > setDarkMode(checked)}
+                // onChange={(checked) = > setDarkMode(checked)}
                 style={{
                   backgroundColor: darkMode ? "#1677ff" : "#d9d9d9",
                 }}
